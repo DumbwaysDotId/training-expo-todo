@@ -32,15 +32,6 @@ export default class TodoListScreen extends Component {
     })
   }
 
-  // allTodos(){
-  //   axios.get('http://10.10.20.207:3000/todos').then((result)=>{
-  //     this.setState({
-  //       todos: result.data,
-  //       isLoading: false
-  //     })
-  //   })
-  // }
-
   render(){
     return (
       <Container>
@@ -50,7 +41,7 @@ export default class TodoListScreen extends Component {
           ): (
             <List>
               {this.state.todos.map((todo, index)=> (
-                <ListItem key={todo.id}>
+                <ListItem key={todo.id} onPress={()=> this.props.navigation.navigate('TodoDetail', {id: todo.id, title: todo.title})}>
                   <Text>{todo.title}</Text>
                 </ListItem>
               ))}
@@ -63,7 +54,7 @@ export default class TodoListScreen extends Component {
         <Fab
           style={{ backgroundColor: '#f4511e' }}
           position="bottomRight"
-          onPress={() => this.props.navigation.navigate('TodoAdd'})}
+          onPress={() => this.props.navigation.navigate('TodoAdd')}
         >
           <Icon name="add" />
         </Fab>

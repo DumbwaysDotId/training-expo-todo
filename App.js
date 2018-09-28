@@ -4,6 +4,7 @@ import { Container, Spinner } from 'native-base';
 
 import TodoListScreen from './screens/TodoListScreen';
 import TodoAddScreen from './screens/TodoAddScreen';
+import TodoDetailScreen from './screens/TodoDetailScreen';
 
 const RootStack = createStackNavigator(
   {
@@ -12,6 +13,9 @@ const RootStack = createStackNavigator(
     },
     TodoAdd: {
       screen: TodoAddScreen
+    },
+    TodoDetail: {
+      screen: TodoDetailScreen
     },
   }, //first param
   {
